@@ -1,7 +1,11 @@
-console.log('Hello Client.js')
-
-import Home from './components/Home'
+import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Routes from './routes'
 
-ReactDOM.hydrate(<Home />, document.querySelector('#root'))
+ReactDOM.hydrate(
+	<BrowserRouter>
+		<Routes />
+	</BrowserRouter>,
+	document.querySelector('#root')
+)
