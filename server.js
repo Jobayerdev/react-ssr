@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
         <main>
             <a href="/">Home</a>
             <a href="/about">About</a>
-            <h1>This is Home page </h1>
+            <h1>This is Home Page </h1>
         </main>
     )
     res.send(renderToString(jsx))
