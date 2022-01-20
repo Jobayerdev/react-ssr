@@ -1,36 +1,39 @@
-const express = require('express')
+import AppComponent from './src/App.js'
+import React from 'react'
+import express from 'express'
+import { renderToString } from 'react-dom/server'
+
 const app = express()
-const reactDOM = require('react-dom/server')
-const AppComponent = require('./src/App.js')
 
 app.get('/', (req, res) => {
-    res.send(`
-    <main>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
-        ${reactDOM.renderToString(AppComponent())}
-    </main>
-   
-    `)
+    res.send(
+        renderToString(
+            <main>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                    </ul>
+                </nav>
+                <h1>Home Page</h1>
+            </main>
+        )
+    )
 })
 
 
 app.get('/about', (req, res) => {
-    res.send(`
-    <main>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
-        <h1>This is About page </h1>
-    </main>
-    `)
+    res.send(renderToString(
+        <main>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+            <h1>About Page</h1>
+        </main>
+    ))
 })
 
 app.listen(3000, () => {
