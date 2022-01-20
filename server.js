@@ -1,4 +1,3 @@
-import AppComponent from './src/App.js'
 import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
@@ -6,34 +5,25 @@ import { renderToString } from 'react-dom/server'
 const app = express()
 
 app.get('/', (req, res) => {
-    res.send(
-        renderToString(
-            <main>
-                <nav>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about">About</a></li>
-                    </ul>
-                </nav>
-                <h1>Home Page</h1>
-            </main>
-        )
+    const jsx = (
+        <main>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <h1>This is Home page </h1>
+        </main>
     )
+    res.send(renderToString(jsx))
 })
 
-
 app.get('/about', (req, res) => {
-    res.send(renderToString(
+    const jsx = (
         <main>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                </ul>
-            </nav>
-            <h1>About Page</h1>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <h1>This is About page </h1>
         </main>
-    ))
+    )
+    res.send(renderToString(jsx))
 })
 
 app.listen(3000, () => {
