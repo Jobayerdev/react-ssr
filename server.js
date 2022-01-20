@@ -1,3 +1,5 @@
+import AboutPage from './src/pages/AboutPage'
+import HomePage from './src/pages/HomePage'
 import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
@@ -5,25 +7,11 @@ import { renderToString } from 'react-dom/server'
 const app = express()
 
 app.get('/', (req, res) => {
-    const jsx = (
-        <main>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <h1>This is Home Page </h1>
-        </main>
-    )
-    res.send(renderToString(jsx))
+    res.send(renderToString(<HomePage />))
 })
 
 app.get('/about', (req, res) => {
-    const jsx = (
-        <main>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <h1>This is About page </h1>
-        </main>
-    )
-    res.send(renderToString(jsx))
+    res.send(renderToString(<AboutPage />))
 })
 
 app.listen(3000, () => {
