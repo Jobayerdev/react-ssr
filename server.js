@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const reactDOM = require('react-dom/server')
+const AppComponent = require('./src/App.js')
 
 app.get('/', (req, res) => {
     res.send(`
@@ -10,8 +12,9 @@ app.get('/', (req, res) => {
                 <li><a href="/about">About</a></li>
             </ul>
         </nav>
-        <h1>This is Home page </h1>
+        ${reactDOM.renderToString(AppComponent())}
     </main>
+   
     `)
 })
 
