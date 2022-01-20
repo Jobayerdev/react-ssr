@@ -4,12 +4,9 @@ const app = express()
 app.get('/', (req, res) => {
     res.send(`
     <main>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+
         <h1>This is Home page </h1>
     </main>
     `)
@@ -19,12 +16,9 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.send(`
     <main>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        
         <h1>This is About page </h1>
     </main>
     `)
