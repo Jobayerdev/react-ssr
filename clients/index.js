@@ -1,0 +1,1 @@
+console.log('I am from Client Side JS')

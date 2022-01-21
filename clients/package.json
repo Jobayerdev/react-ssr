@@ -3,7 +3,9 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
-	"scripts": {},
+	"scripts": {
+		"dev:build": "webpack --config webpack.js --watch"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Jobayerdev/react-ssr-practice.git"
