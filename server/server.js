@@ -1,5 +1,5 @@
-import AboutPage from './src/pages/AboutPage'
-import HomePage from './src/pages/HomePage'
+import AboutPage from '../clients/src/pages/AboutPage'
+import HomePage from '../clients/src/pages/HomePage'
 import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
