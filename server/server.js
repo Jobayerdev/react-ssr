@@ -3,23 +3,14 @@ import HomePage from '../clients/src/pages/HomePage'
 import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
+import renderer from '../clients/helpers/renderer'
 
 const app = express()
 
 app.use(express.static('../clients/build'))
 
 app.get('/', (req, res) => {
-    const content = renderToString(<HomePage />)
-    const html = `
-    <html>
-        <head></head>
-        <body>
-        <div id="root">${content}</div>
-        <script src="bundle.js"></script>
-        </body>
-    </html>
-    `
-    res.send(html)
+    res.send(renderer())
 })
 
 app.get('/about', (req, res) => {
